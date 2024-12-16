@@ -1,1 +1,1 @@
-# museum-new
+# **gulp-template with eslint,prettier & husky**
