@@ -34,6 +34,24 @@ function html() {
     .pipe(gulp.dest("./dist"));
 }
 
+// if you use a few files for html
+// function html() {
+//   return gulp
+//     .src(paths.html)
+//     .pipe(
+//       fileInclude({
+//         prefix: "@@",
+//         basepath: "@file",
+//       }),
+//     )
+//     .pipe(
+//       isProduction
+//         ? htmlmin({ collapseWhitespace: true })
+//         : gulp.dest("./dist"),
+//     )
+//     .pipe(gulp.dest("./dist"));
+// }
+
 function styles() {
   return gulp
     .src(paths.scss)
@@ -44,6 +62,22 @@ function styles() {
     .pipe(isDev ? sourcemaps.write(".") : gulp.dest("./dist/styles"))
     .pipe(gulp.dest("./dist/styles"));
 }
+
+// if you use a few files for styles
+// function styles() {
+//   return gulp
+//     .src(paths.scss)
+//     .pipe(sourcemaps.init())
+//     .pipe(
+//       sass({
+//         includePaths: ["./src/styles"],
+//       }).on("error", sass.logError),
+//     )
+//     .pipe(autoprefixer())
+//     .pipe(cleanCSS())
+//     .pipe(sourcemaps.write("."))
+//     .pipe(gulp.dest("./dist/styles"));
+// }
 
 function scripts() {
   return gulp
